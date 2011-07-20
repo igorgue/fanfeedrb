@@ -1,3 +1,4 @@
+require 'fanfeedr'
 require 'fanfeedr/event'
 
 class League
@@ -8,7 +9,9 @@ class League
     @name = params[:name]
   end
 
-  def events
-    raise "not implemented"
+  def events params
+    client = Fanfeedr.new params
+
+    client.events self
   end
 end

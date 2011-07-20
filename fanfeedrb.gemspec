@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.summary     = %q{Ruby implementation of the FanFeedr api}
   s.description = %q{Ruby implementation of the FanFeedr api}
   s.add_dependency('rake')
-  s.add_dependency('crack')
   s.add_dependency('rspec')
   s.add_dependency('fakeweb')
   s.add_dependency('json')
