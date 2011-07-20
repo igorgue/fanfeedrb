@@ -58,8 +58,7 @@ class Fanfeedrb
   def new_story(attributes = {}, &block)
     attributes = attributes.inject('requested_by' => real_name) do |h,(k,v)|
       h.update(k.to_s => v)
-    end
-    .new_story(attributes, &block)
+    end.new_story(attributes, &block)
   end
 
   def stories(*args)
