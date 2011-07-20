@@ -2,6 +2,7 @@ require 'cgi'
 require 'json'
 
 require 'fanfeedr/league'
+require 'fanfeedr/event'
 
 class Fanfeedr
   def initialize params, ssl = false
