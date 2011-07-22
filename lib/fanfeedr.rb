@@ -45,6 +45,10 @@ class Fanfeedr
     end
   end
 
+  def boxscore event
+    request_json('get', "events/#{event.id}/boxscore")
+  end
+
   def ssl?
     @ssl
   end
