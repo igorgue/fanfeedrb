@@ -1,17 +1,19 @@
 require 'fanfeedr'
 require 'fanfeedr/event'
 
-class League
-  attr_reader :id, :name
+module Fanfeedrb
+  class League
+    attr_reader :id, :name
 
-  def initialize params
-    @id = params[:id]
-    @name = params[:name]
-  end
+    def initialize params
+      @id = params[:id]
+      @name = params[:name]
+    end
 
-  def events params
-    client = Fanfeedr.new params
+    def events params
+      client = Fanfeedr.new params
 
-    client.events self
+      client.events self
+    end
   end
 end

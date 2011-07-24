@@ -7,7 +7,7 @@ require 'fanfeedr'
 require 'fanfeedr/league'
 require 'fanfeedr/event'
 
-describe Fanfeedr do
+describe Fanfeedrb::Fanfeedr do
   before :all do
     @api_key = "test_api_key"
     @tier = "basic"
@@ -22,7 +22,7 @@ describe Fanfeedr do
 
     FakeWeb.register_uri(:any, @leagues_uri, :body => @leagues_response)
 
-    @client = Fanfeedr.new :api_key => @api_key, :tier => @tier
+    @client = Fanfeedrb::Fanfeedr.new :api_key => @api_key, :tier => @tier
 
     leagues_names = JSON::load(@leagues_response).map { |item| item['name'] }
     leagues = @client.leagues
@@ -46,10 +46,10 @@ describe Fanfeedr do
 
     FakeWeb.register_uri(:any, @events_uri, :body => @event_response)
 
-    @client = Fanfeedr.new :api_key => @api_key, :tier => @tier
+    @client = Fanfeedrb::Fanfeedr.new :api_key => @api_key, :tier => @tier
 
     event_names = JSON::load(@event_response).map { |item| item['name'] }
-    league = League.new(:id => league_id, :name => league_name)
+    league = Fanfeedrb::League.new(:id => league_id, :name => league_name)
     events = @client.events league
 
     events.each do |event|
