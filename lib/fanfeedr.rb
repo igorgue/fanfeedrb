@@ -17,7 +17,7 @@ module Fanfeedrb
 
     def leagues
       request_json('get', 'leagues').map do |item|
-        League.new(:id => item["id"], :name => item["name"])
+        Fanfeedrb::League.new(:id => item["id"], :name => item["name"])
       end
     end
 
