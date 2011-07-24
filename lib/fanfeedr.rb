@@ -17,7 +17,7 @@ module Fanfeedrb
 
     def leagues
       request_json('get', 'leagues').map do |item|
-        Fanfeedrb::League.new(:id => item["id"], :name => item["name"])
+        League.new(:id => item["id"], :name => item["name"])
       end
     end
 
@@ -25,23 +25,23 @@ module Fanfeedrb
       case object.class.to_s.split("::")[1].downcase.to_sym
       when :league
         request_json('get', "leagues/#{object.id}/events").map do |item|
-          Fanfeedrb::Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
+          Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
         end
       when :conference
         request_json('get', "conferences/#{object.id}/events").map do |item|
-          Fanfeedrb::Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
+          Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
         end
       when :division
         request_json('get', "divisions/#{object.id}/events").map do |item|
-          Fanfeedrb::Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
+          Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
         end
       when :team
         request_json('get', "teams/#{object.id}/events").map do |item|
-          Fanfeedrb::Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
+          Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
         end
       when :geo
         request_json('get', "geos/#{object.id}/events").map do |item|
-          Fanfeedrb::Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
+          Event.new(:id => item["id"], :date => item["date"], :name => item["name"])
         end
       else
         []
