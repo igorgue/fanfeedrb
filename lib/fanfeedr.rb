@@ -52,6 +52,10 @@ module Fanfeedrb
       request_json('get', "events/#{event.id}/boxscore")
     end
 
+    def get_event_results_by_id id
+      request_json('get', "events/#{id}")
+    end
+
     def ssl?
       @ssl
     end
